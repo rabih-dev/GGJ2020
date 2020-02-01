@@ -14,7 +14,7 @@ public class SceneChangingWithFade : MonoBehaviour
     public Animator vaseAnim;
 
 
-    public PlayerController player;
+    private PlayerController player;
 
     void Start()
     {
@@ -30,10 +30,10 @@ public class SceneChangingWithFade : MonoBehaviour
 
     IEnumerator ShowingVase()
     {
-        vaseAnim.SetInteger("state", PlayerPrefs.GetInt("shardAmount"));
 
-        vaseAnim.SetTrigger("vanish");
+        //vaseAnim.SetInteger("state", PlayerPrefs.GetInt("shardAmount"));
         yield return new WaitForSeconds(6f);
+        vaseAnim.SetTrigger("vanish");
         fadeAnim.SetTrigger("fadeOut");
 
     }
