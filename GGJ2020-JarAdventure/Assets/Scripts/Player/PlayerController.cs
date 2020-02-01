@@ -79,10 +79,13 @@ public class PlayerController : MonoBehaviour
 			playerMovement = new Vector3(0,0,0);
         }
 	}
-		void Movement()
-		{
-		//moving around 
-		rb.velocity = playerMovement;
 
-		}
+	void Movement()
+	{
+	//moving around 
+	rb.velocity = playerMovement;
+
+	}
+
+	
 }
