@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 493614177}
   - component: {fileID: 493614179}
   - component: {fileID: 493614178}
+  - component: {fileID: 493614180}
   m_Layer: 5
   m_Name: Vase
   m_TagString: Untagged
@@ -766,7 +767,7 @@ RectTransform:
   m_GameObject: {fileID: 493614176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 960738021}
   m_RootOrder: 1
@@ -794,9 +795,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7687605271343007616, guid: 878c8c0053b74af4d844b049ae10cabe,
+    type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -812,6 +814,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493614176}
   m_CullTransparentMesh: 0
+--- !u!95 &493614180
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493614176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23bd4746131aa8247ba470ae579befc5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &498361772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,8 +1278,7 @@ MonoBehaviour:
   customDelay: 10
   useCustomDelay: 0
   fadeAnim: {fileID: 145935055}
-  vaseAnim: {fileID: 0}
-  player: {fileID: 0}
+  vaseAnim: {fileID: 493614180}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
