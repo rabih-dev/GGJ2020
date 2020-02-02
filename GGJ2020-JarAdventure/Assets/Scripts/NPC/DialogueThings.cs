@@ -9,5 +9,6 @@ public class DialogueThings
     [TextArea(1, 3)]
     public string[] sentences;
     public Sprite img;
+    public AudioClip voice;
 
 }

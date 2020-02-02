@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour
     public GameObject pressToTalk;
     //Instanciou o Player aqui pra pegar a variavel booleana Talking
     private PlayerController player;
+    
 
     void Start()
     {

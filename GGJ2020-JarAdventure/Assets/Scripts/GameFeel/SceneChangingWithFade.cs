@@ -13,25 +13,68 @@ public class SceneChangingWithFade : MonoBehaviour
     public Animator fadeAnim;
     public Animator vaseAnim;
 
+    public Animator vaseBtn;
+    public Rigidbody flowerBtn;
+    private AudioSource vaseCracking;
+    public Animator cameraAnim;
+
 
     private PlayerController player;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        StartCoroutine(ShowingVase());
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            PlayerPrefs.SetInt("shardAmount", 1);
+            vaseCracking = GetComponent<AudioSource>();
+            StartCoroutine(MenuFadeOut());
+        }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            StartCoroutine(ShowingVase());
+        }
     }
+
 
     public void ChangeScene(string name)
     {
         sceneName = name;
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            cameraAnim.SetTrigger("camerashake");
+            StartCoroutine(MenuTransition());
+        }
+        else
+        {
+            StartCoroutine(FadingToNextScene());
+        }
+    }
+
+    IEnumerator MenuFadeOut()
+    {
+        yield return new WaitForSeconds(3f);
+        fadeAnim.SetTrigger("fadeOut");
+    }
+
+    IEnumerator MenuTransition()
+    {
+        vaseBtn.SetTrigger("crack");
+        
+        vaseCracking.Play();
+        flowerBtn.isKinematic = false;
+        flowerBtn.AddForce(new Vector2(2000,2500));
+        yield return new WaitForSeconds(1f);
+        flowerBtn.AddForce(new Vector2(0, -10000));
+        yield return new WaitForSeconds(2f);
         StartCoroutine(FadingToNextScene());
+
     }
 
     IEnumerator ShowingVase()
     {
 
-        //vaseAnim.SetInteger("state", PlayerPrefs.GetInt("shardAmount"));
+        vaseAnim.SetInteger("shardAmount", PlayerPrefs.GetInt("shardAmount"));
         yield return new WaitForSeconds(6f);
         vaseAnim.SetTrigger("vanish");
         fadeAnim.SetTrigger("fadeOut");

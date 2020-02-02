@@ -10,6 +10,7 @@ public class DialogueAdm : MonoBehaviour
     public Image image;
     public Text dialogueTxt;
     public GameObject dialogueBox;
+    private AudioSource npcVoice;
     //Fila com as setenças 
     public Queue<string> sentences;
     private PlayerController player;
@@ -18,6 +19,7 @@ public class DialogueAdm : MonoBehaviour
     {
         sentences = new Queue<string>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        npcVoice = GetComponent<AudioSource>();
     }
 
     public void StartDialogue(DialogueThings dialogue)
@@ -30,6 +32,7 @@ public class DialogueAdm : MonoBehaviour
         player.curSpeed = 0;
         //Iguala
         image.sprite = dialogue.img;
+        npcVoice.clip = dialogue.voice;
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -61,6 +64,7 @@ public class DialogueAdm : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueTxt.text += letter;
+            npcVoice.Play();
             yield return new WaitForSeconds(0.1f);
 
         }
