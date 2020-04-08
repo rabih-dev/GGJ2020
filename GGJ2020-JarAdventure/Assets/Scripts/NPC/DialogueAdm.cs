@@ -15,11 +15,17 @@ public class DialogueAdm : MonoBehaviour
     public Queue<string> sentences;
     private PlayerController player;
 
+    //pulando dialogo
+    [HideInInspector] public bool isLettering;
+    private Coroutine letteringCoroutine;
+    private string curSentence;
+
     void Start()
     {
         sentences = new Queue<string>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         npcVoice = GetComponent<AudioSource>();
+        isLettering = false;
     }
 
     public void StartDialogue(DialogueThings dialogue)
@@ -55,20 +61,28 @@ public class DialogueAdm : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(LetterByLeter(sentence));
+        letteringCoroutine = StartCoroutine(LetterByLeter(sentence));
     }
 
     IEnumerator LetterByLeter(string sentence)
     {
         dialogueTxt.text = "";
+        curSentence = sentence;
         foreach (char letter in sentence.ToCharArray())
         {
+            isLettering = true;
             dialogueTxt.text += letter;
             npcVoice.Play();
             yield return new WaitForSeconds(0.1f);
-
         }
+        isLettering = false;
+    }
 
+    public void SkipLettering() 
+    {
+        isLettering = false;
+        StopCoroutine(letteringCoroutine);
+        dialogueTxt.text = curSentence;
     }
 
     void EndDialogue()

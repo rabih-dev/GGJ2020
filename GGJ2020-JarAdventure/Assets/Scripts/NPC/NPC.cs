@@ -33,6 +33,11 @@ public class NPC : MonoBehaviour
                 FindObjectOfType<DialogueAdm>().StartDialogue(dialogue);
             }
 
+            else if (dialogueBox.activeSelf && FindObjectOfType<DialogueAdm>().isLettering)
+            {
+                FindObjectOfType<DialogueAdm>().SkipLettering();
+            }
+
             else
             {
                 //Vai no DialogueManager e entra em NextSentence

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17804833, g: 0.21666202, b: 0.26901644, a: 1}
+  m_IndirectSpecularColor: {r: 0.1780487, g: 0.21666259, b: 0.26901698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -512,8 +512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - tu puta madre
-    - cabron
+    - tu puta madre aaaaaaaaaaaa bbbbbbbb ccccc
+    - cabron maldito burro fedido cachaceiro sujo
     img: {fileID: 9066940281449253082, guid: bdb91b9f15b8f9940bdf637a09f77404, type: 3}
     voice: {fileID: 8300000, guid: 46bd70f0ff4bacc46970efa00224b396, type: 3}
   dialogueBox: {fileID: 645504217}
@@ -736,7 +736,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -1963,7 +1963,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
